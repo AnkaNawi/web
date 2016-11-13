@@ -1,0 +1,54 @@
+Django con mongodb
+
+Material de consulta
+====================
+
+Solo vean esto: http://docs.mongoengine.org/tutorial.html
+
+Antes de instalar las dependencias del proyecto necesitas algunas
+librerias de desarrollo como python-imaging:
+
+# apt-get build-dep python-imaging
+
+Despues de eso recien instalamos las dependencias del proyecto con pip:
+
+$ pip install -r requirements.txt
+
+La linea anterior instala todas las dependencias.
+
+Previamente tienen que tener mongodb instalado
+hacen un pull o si recien van a empezar lo clonan:
+$ git clone https://github.com/tinojcvc/FabricaWeb.git
+
+o
+
+FabricaWeb $ git pull
+$ cd FabricaWeb
+$ python manage.py runserver
+
+Django y Mongo
+==============
+http://staltz.com/djangoconfi-mongoengine/#/
+https://code.djangoproject.com/wiki/NoSqlSupport
+https://github.com/django-nonrel/mongodb-engine
+http://django-mongodb-engine.readthedocs.org/en/latest/tutorial.html
+
+WebServices
+===========
+https://code.djangoproject.com/wiki/WebServices
+
+La siguiente pagina es para WebServices y whatsapp con python:
+https://github.com/tgalal/yowsup
+
+Django Rest Framework
+=====================
+En los requirements.txt ya esta incluido la instalacion de rest_framework,
+pero algo importante que debemos mencionar es que con mongodb es necesario
+instalar otras herramientas como django-rest-framework-mongoengine, porque
+si tratas de hacer sin el paquete anterior nunca te funcionara, solo
+rest_framework esta pensado para DB SQL y mongoDB es NOSQL.
+
+http://www.django-rest-framework.org/
+https://github.com/umutbozkurt/django-rest-framework-mongoengine
+http://umutbozkurt.github.io/django-rest-framework-mongoengine/index.html
+

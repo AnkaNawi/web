@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block refresh %}
+<meta http-equiv="refresh" content="30"/>
+{% endblock %}
+
+{% block header %}
+<h5 class="header center"><a class="card-title activator text-darken-4" href='{% static "app/ankanawi.apk" %}'>Descarga nuestra aplicacion</a></h5>
+{% endblock%}
+
+{% block content %}
+
+{% if messages %}
+<div class="row">
+    {% for value in messages %}
+    <div class="col s12 m4">
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src='data:image/png;base64,{{value.photo}}'>
+        </div>
+        <div class="card-content">
+            <a class="card-title activator text-darken-4" href='/appmobile/message/{{value.id}}/'>
+                Ver mas...
+            </a>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+          <p>
+          altitude: {{value.altitude}}</br>
+          orientation: {{value.orientation}}</br>
+          speed: {{value.speed}}</br>
+          number_phone: {{value.number_phone}}</br>
+          date_creation: {{value.date_creation}}</br>
+          fire_percentage: {{value.fire_percentage}}</br>
+          message: {{value.message}}</br>
+          </p>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>    
+    <div class="pagination">
+        <span class="step-links">
+            {% if messages.has_previous %}
+                <li class="waves-effect "><a href="?page={{ messages.previous_page_number }}"><i class="red accent-4 material-icons">chevron_left</i></a></li>
+            {% endif %}
+
+            <span class="current active ">
+                Pagina {{ messages.number }} de {{ messages.paginator.num_pages }}.
+            </span>
+
+            {% if messages.has_next %}
+                <li class="waves-effect "><a href="?page={{ messages.next_page_number }}"><i class="material-icons red accent-4">chevron_right</i></a></li>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% else %}
+Sin valores
+{% endif %}
+<br>
+{% endblock %}

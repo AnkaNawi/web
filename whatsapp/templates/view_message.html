@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block refresh %}
+<meta http-equiv="refresh" content="30"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  {% if list_content %}
+    {% for value in list_content %}
+      <h4>Numero de Celular:</h4><h5>{{ value.phone }}</h5>
+      <h5>Fecha: </h5>{{ value.date_creation }} <br>
+    {% endfor %}
+  {% endif %}
+
+  {% if list_content %}
+      {% for value in list_content %}
+      <blockquote>
+        {{ value.message }}
+      </blockquote>
+
+      <a class="btn waves-effect waves-light green" href='/whatsapp/is_valid/{{value.id}}/'>Es valido <i class="material-icons right">done</i></a>
+
+      <a class="btn waves-effect waves-light red" href='/whatsapp/no_valid/{{value.id}}/'>No Es valido <i class="material-icons right">not_interested</i></a>
+      </br>
+      </br>
+      <img class="responsive-img" alt='Embedded Image' src='data:image/png;base64,{{  value.image_FullSize }}'></td>
+      {% endfor %}
+
+  {% else %}
+    <h1>Sin valores</h1>
+  {% endif %}
+</div>
+{% endblock %}
+

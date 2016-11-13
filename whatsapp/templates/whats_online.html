@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+{% if list_msg %}
+<div class="row">
+    {% for value in list_msg %}
+    <div class="col s12 m4">
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src='data:image/png;base64,{{  value.convert_image }}'>
+        </div>
+        <div class="card-content">
+          <a class="card-title activator text-darken-4" href='/whatsapp/view_message/{{value.id}}/'>{{ value.phone }}</a>
+          </br>
+          <span>{{ value.date_creation }}</span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+          <p>{{ value.message }}</p>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+<!--
+  <table class="striped">
+  <thead>
+      <tr>
+          <th>Fecha</th>
+          <th>Numero de Celular</th>
+          <th>Imagen</th>
+          <th>Mensaje</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for value in list_msg %}
+        <tr>
+            <td>{{ value.date_creation }}</td>
+            <td><a href='/whatsapp/view_message/{{value.id}}/'>{{ value.phone }}</a></td>
+            <td><img class="activator" alt='Embedded Image' src='data:image/png;base64,{{  value.convert_image }}'></td>
+            <td>{{ value.message }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>-->
+{% else %}
+<h1>Sin Valores</h1>
+{% endif %}
+{% endblock %}

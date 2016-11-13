@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<h5 class="header center">Denuncias por whatsapp: 70351632</h5>
+<h5 class="header center"><a class="card-title activator text-darken-4" href='{% static "app/ankanawi.apk" %}'>Descarga nuestra aplicacion</a></h5>
+{% endblock%}
+
+{% block content %}
+<h3 class="header center">{{ title }}</h3>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{{ url }}" method="post">
+    {% csrf_token %}
+ 	{{ form }}
+    </br>
+    <input  type="submit" value="enviar" class="waves-effect waves-light btn"/>
+</form>
+</br>
+</br>
+{% endblock %}
